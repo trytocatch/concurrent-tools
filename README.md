@@ -20,7 +20,7 @@ This tool is thread-safe, beside all those wait methods, the others are nonblock
 
 This is a tool for working out the latest result.
 
-It was written for this situation: **you want do some time-consuming calculations for some data and get the result, but the data changes frequently by multiple threads, and it's meaningless to continue with the calculation once the data has changed. So it need to cancel the current calculation with low cost and it must be thread-safe. **
+It was written for this situation: **you want do some time-consuming calculations for some data and get the result, but the data changes frequently by multiple threads, and it's meaningless to continue with the calculation once the data has changed. So it need to cancel the current calculation with low cost and it must be thread-safe.**
 
 The request has divided into two operation, 'update the parameters' and 'update', once you changed the data, you need to call the method `updateParametersVersion` to let this tool know, if there is a calculation on the way, it will be canceled(the task left to you is canceling your calculation in the implementation of calculateResult once you detect that `isWorking`  returns false) and restart, or do nothing in other cases. The `update` mean that you want to get the latest result, it will launch the calculation if the data has changed since the last calculation finished, otherwise nothing will be done. There are several variants of `update`, such as `updateAndWait`, you can use it to wait for the result. It will stop waiting if a newer result has worked out or the method `stopCurrentWorking` was called or that thread was interrupted. 
 
