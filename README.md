@@ -1,7 +1,7 @@
-#Concurrent tools
+# Concurrent tools
 
 ---
-##1. BoundlessCyclicBarrier
+## 1. BoundlessCyclicBarrier
 
 中文介绍请看这：[BoundlessCyclicBarrier](http://www.cnblogs.com/trytocatch/p/boundlesscyclicbarrier.html)
 
@@ -14,7 +14,7 @@ When calls `cancel`, the waiting threads will be unblocked. If calls `nextCycle`
 This tool is thread-safe, beside all those wait methods, the others are nonblocking.
 
 ---
-##2. LatestResultsProvider
+## 2. LatestResultsProvider
 
 中文介绍请看这：[LatestResultsProvider](http://www.cnblogs.com/trytocatch/p/latestresultsprovider.html)
 
